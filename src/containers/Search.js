@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getPhotos } from '../actions/actions';
 
-
-
-class Search extends Component {
+class SearchForm extends Component {
   constructor(props) {
     super(props);
 
@@ -19,12 +19,10 @@ class Search extends Component {
   }
 
   handleSubmit(event) {
-    alert('Searching Flickr for: ' + this.state.value);
-    
     event.preventDefault();
-
+    debugger;
+    this.props.getPhotos(this.state.value);
   }
-
 
   render() {
     return (
@@ -37,7 +35,13 @@ class Search extends Component {
       </form>
     )
   }
-
 }
 
-export { Search };
+const mapDispatchToProps = dispatch => {
+  return {
+    getPhotos: photo => dispatch(getPhotos(photo))
+  };
+}
+
+const Search = connect(null, mapDispatchToProps)(SearchForm);
+export default Search;

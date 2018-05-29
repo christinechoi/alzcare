@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Photo from '../components/Photo';
-
+import { connect } from 'react-redux';
 
 class SearchResults extends Component {
-
   render() {
     return(
       <div>
@@ -14,4 +13,8 @@ class SearchResults extends Component {
   }
 }
 
-export { SearchResults };
+const mapStateToProps = state => {
+  return { photos: state.photos };
+};
+
+export default connect(mapStateToProps, null)(SearchResults);

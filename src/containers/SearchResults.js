@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Photo from '../components/Photo';
 import { connect } from 'react-redux';
 
-class SearchResults extends Component {
+class SearchResultsContainer extends Component {
   render() {
     return(
       <div>
@@ -17,4 +17,7 @@ const mapStateToProps = state => {
   return { photos: state.photos };
 };
 
-export default connect(mapStateToProps, null)(SearchResults);
+
+
+const SearchResults = connect(mapStateToProps, null)(SearchResultsContainer);
+export default SearchResults;

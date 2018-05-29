@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-import { Search } from './containers/Search.js'; 
-import { SearchResults } from './containers/SearchResults.js';
+import Search from './containers/Search.js'; 
+import SearchResults from './containers/SearchResults.js';
 
 
 class App extends Component {

@@ -5,12 +5,12 @@ import { Card, Image } from 'semantic-ui-react';
 const Photo = (props) => {
   return (
     <div>
-      <Card.Group className='ui five column doubling stackable grid container centered'> {
+      <Card.Group className='ui four column doubling stackable grid container centered'> {
         props.photos.map((photo, index) => (  
           <Card key={index} >
             <Image src={photo.media.m} />
             <Card.Content >
-              <Card.Header> {photo.title} </Card.Header> 
+              <Card.Description>{photo.title}</Card.Description> 
             </Card.Content>
           </Card>
         ))}

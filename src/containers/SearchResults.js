@@ -6,8 +6,7 @@ class SearchResultsContainer extends Component {
   render() {
     return(
       <div>
-        <h3>SearchResults Container</h3> 
-        <Photo />
+        <Photo photos={this.props.photos} />
       </div>
     ) 
   }
@@ -16,8 +15,6 @@ class SearchResultsContainer extends Component {
 const mapStateToProps = state => {
   return { photos: state.photos };
 };
-
-
 
 const SearchResults = connect(mapStateToProps, null)(SearchResultsContainer);
 export default SearchResults;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getPhotos } from '../actions/actions';
+import { Divider, Form, Grid } from 'semantic-ui-react';
 
 class SearchForm extends Component {
   constructor(props) {
@@ -20,19 +21,36 @@ class SearchForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    debugger;
     this.props.getPhotos(this.state.value);
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          <p>Search by tag(s):</p>
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <Grid>
+        <Divider hidden />
+        <Divider hidden />
+        <Grid.Row centered>
+          <Grid.Column width={6}>
+            <Form onSubmit={(e) => this.handleSubmit(e)} >
+              <Form.Field centered>
+                <label>Search Flickr by tag(s): </label>
+              </Form.Field>
+              <Form.Field >
+                <Form.Input  
+                  type="text" 
+                  value={this.state.value} 
+                  onChange={this.handleChange} />
+              </Form.Field>
+              <Form.Button 
+                type='submit' 
+                color='blue' 
+                size='lg' 
+                fluid> Submit
+              </Form.Button>
+            </Form>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     )
   }
 }
